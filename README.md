@@ -9,6 +9,6 @@ This C++ application is a standalone graphical interface toolkit for giving comm
 - Small. This application does not use big toolkits that add a huge footprint to the executable. The entire app is ~ 130 Kb in size. The only library used is WTL, a header only template OO library wrapping Win32 classes.
 - Compatible. This interface uses the Win32 API, which is guaranteed to work on most Windows versions, from XP to Windows 10.
 - Simple. The arguments are passed as simple text.
-- Free. The only used library is WTL, which is licensed under the Microsoft Public License.
-##Screenshot
+- Free. The only used library is WTL, which is licensed under the Microsoft Public License.  
+## Screenshot
 ![screenshot](https://github.com/pemn/ScriptGui/blob/master/assets/screenshot1.png)
