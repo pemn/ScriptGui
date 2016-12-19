@@ -1,0 +1,129 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include <atlres.h>
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+//~ #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+/*
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""atlres.h""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+*/
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icons and Images
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\logo.ico"
+
+//~ IDR_LOGO                BITMAP                  "res\\logo.bmp"
+IDR_LOGO                emf     DISCARDABLE     "res\\logo.emf"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 198, 148
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,141,107,50,14
+    CTEXT           "wtlscriptgui Application v1.0\n\n(c) Copyright 2014 Vale\n\nCredits:\nDeveloper - paulo.ernesto",
+                    IDC_STATIC,25,57,98,57
+    ICON            IDR_MAINFRAME,IDC_STATIC,55,26,21,20
+    GROUPBOX        "",IDC_STATIC,7,7,127,114
+END
+
+IDD_MAINDLG DIALOG DISCARDABLE  0, 0, 200, 112
+STYLE WS_MINIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "WTLScriptGui"
+//~ FONT 12, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Run",ID_APP_RUN,137,82,60,14
+    
+    PUSHBUTTON      "0",ID_APP_CLEAR,138,60,18,14
+    PUSHBUTTON      "1",ID_APP_LOAD, 158,60,18,14
+    PUSHBUTTON      "<",ID_APP_SAVE, 178,60,18,14
+    COMBOBOX        IDC_COMBO_XML,137,48,60,70,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+
+    CONTROL         "",IDC_LOGO,"Static",SS_ENHMETAFILE,137,22,60,23
+
+    PUSHBUTTON      "ž",ID_APP_MENU,137,4,14,14,BS_FLAT
+    PUSHBUTTON      "i",ID_APP_ABOUT,160,4,14,14,BS_FLAT
+    PUSHBUTTON      "s",ID_APP_HELP,183,4,14,14,BS_FLAT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ FILEOS VOS_NT
+ FILETYPE VFT_APP
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "Vale\0"
+            VALUE "FileDescription", "Developer: paulo.ernesto\0"
+            VALUE "FileVersion", "\0"
+            VALUE "InternalName", "\0"
+            VALUE "LegalCopyright", "Copyright 2014 Vale\0"
+            VALUE "OriginalFilename", "wtlscriptgui.exe\0"
+            VALUE "ProductName", "WTL Script Interface\0"
+            VALUE "ProductVersion", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x416, 1200
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+//~ #endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
