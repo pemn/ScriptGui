@@ -86,13 +86,14 @@ public:
         if(m_exe.IsEmpty()) {
             if(m_script.Right(3).CompareNoCase(_T("csh")) == 0) {
                 m_exe = _T("csh");
-            } else if(sScript.Right(2).CompareNoCase(_T("pl")) == 0 
+            } else if(m_script.Right(2).CompareNoCase(_T("pl")) == 0 
             || m_script.Right(4).CompareNoCase(_T("lava")) == 0) {
                 m_exe = _T("perl");
-            } else if(sScript.Right(2).CompareNoCase(_T("js")) == 0 
+            } else if(m_script.Right(2).CompareNoCase(_T("js")) == 0 
             || m_script.Right(3).CompareNoCase(_T("vbs")) == 0) {
                 m_exe = _T("cscript /nologo");
-            // } else if(sScript.Right(3).CompareNoCase(_T("dll")) == 0 ) {
+            } else if(m_script.Right(2).CompareNoCase(_T("py")) == 0) {
+                m_exe = _T("python");
             } else { // default to windows command
                 m_exe = _T("cmd /c");
                 m_vulcan = 0;
