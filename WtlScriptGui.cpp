@@ -22,32 +22,22 @@
 
 #include "maindlg.h"
 
-//~ CAppModule _Module;
-
-//~ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPTSTR /*lpstrCmdLine*/, int /*nCmdShow*/)
 int _tmain(/*int argc, wchar_t* argv[]*/)
 {
 
     // If you are running on NT 4.0 or higher you can use the following call instead to 
     // make the EXE free threaded. This means that calls come in on a random RPC thread.
-    //~ HRESULT hRes = ::CoInitializeEx(NULL, COINIT_MULTITHREADED);
 	::CoInitializeEx(NULL, COINIT_MULTITHREADED);
-    //#// ::CoInitialize(NULL);
     
-    //~ hRes = _Module.Init(NULL, hInstance);
-    //~ AtlAxWinInit();
-    
-    INT_PTR nRet = 0;
+    int nRet = 0;
     // NOTE: CMainDlg must be in this block.  Not doing so causes the
     // CMainDlg destructor to be called after _Module.Term(), which
     // leads to a crash in release builds built with _ATL_MIN_CRT defined.
     {
         CMainDlg dlgMain;
-		//MessageBox(NULL, _T("Test"), NULL, MB_ICONINFORMATION);
-        nRet = dlgMain.DoModal();
+        nRet = static_cast<int>(dlgMain.DoModal());
     }
     
-    //~ _Module.Term();
     ::CoUninitialize();
-    return(static_cast<int>(nRet));
+    return(nRet);
 }
