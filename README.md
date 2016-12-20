@@ -18,7 +18,7 @@ The interfaces searches in the current working directory for all files that have
 Ex.: "myscript.exe" will match a file named "myscript.py".
 ### The "usage:" line
 Once the interface finds a compatible script, it will do a text search on the contents of this file looking for a magic word: `usage:`  
-When it is found, its line is parsed into interface controls using the templates described below.
+When it is found, its line is parsed into interface controls using the templates described below. This `usage:` can be a comment or, even better, can be the short help message describing its usage. Its common for a script to print their parameter syntax when called with a switch such as `/?` and `-h` or without any arguments. This interfaces tries to "guess" a good control layout.
 ### Control templates
 - `<name>=<value>`  
 text input control
@@ -28,5 +28,9 @@ file browse control
 derived control that gets its list values from the file pointed by another file browse control
 - `<name>@`  
 checkbox boolean control
-- `<name>#<control>` 
+- `<name>#<control>`  
 grid of controls, allowing a the user to create a list of similar values
+### Example of a "usage:" line
+`usage: %0 input*csv selection=a,b,c numeric=123 boolean@ output*csv`  
+
+
