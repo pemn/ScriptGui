@@ -23,7 +23,7 @@ This C++ application is a standalone graphical interface toolkit for giving comm
 The interfaces searches in the current working directory for all files that have the same base name, and are of a supported extension.
 Ex.: "myscript.exe" will match a file named "myscript.py".
 
-### The "usage:" line
+### The `usage:` line
 Once the interface finds a compatible script, it will do a text search on the contents of this file looking for a magic word: `usage:`  
 When it is found, its line is parsed into interface controls using the templates described below. This `usage:` can be a comment or, even better, can be the short help message describing its usage. Its common for a script to print their parameter syntax when called with a switch such as `/?` and `-h` or without any arguments. The origin of this interface was trying to "guess" a good control layout from existing usage lines. Conforming any already existing usage line to the templates should have no downsides and will even look informative.
 
