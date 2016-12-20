@@ -4,6 +4,9 @@ Data driven Windows gui for command line scripts.
 ## Description
 This C++ application is a standalone graphical interface toolkit for giving command line scripts a intuitive for user input. The user can fill the fields then click "Run" to call a script with the parameters selected as the command line arguments.
 
+## Screenshot
+![screenshot](https://github.com/pemn/ScriptGui/blob/master/assets/screenshot1.png)
+
 ## Features
 - Fully standalone. No runtimes (other than MSVC, and even this can be optionally removed by compiling with static runtime)
 - Data driven. The entire interface is defined with a single line with special control templates. This template line can be a comment line, so your code is effectively unchanged. The only thing you must ensure is to read the command line parameters which will contain the user input.
@@ -25,9 +28,6 @@ This C++ application is a standalone graphical interface toolkit for giving comm
  - HTML application (.hta)
  - Customized DLL with a `run` function (.dll)
  - And with minor changes, anything that runs on the command line and can read argument parameters.
-
-## Screenshot
-![screenshot](https://github.com/pemn/ScriptGui/blob/master/assets/screenshot1.png)
 
 ## How to use
 ### File name matters
