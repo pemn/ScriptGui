@@ -11,14 +11,14 @@ This C++ application is a standalone graphical interface toolkit for giving comm
 - Fully standalone. No runtimes (other than MSVC, and even this can be optionally removed by compiling with static runtime)
 - Data driven. The entire interface is defined with a single line with special control templates. This template line can be a comment line, so your code is effectively unchanged. The only thing you must ensure is to read the command line parameters which will contain the user input.
 - Flexible. Any language that can somehow read the command line arguments can be supported. Custom handlers may be easily implemented too.
-- Small. This application does not use big toolkits that add a huge footprint to the executable. The entire app is a single executable ~ 130 Kb in size.
+- Small. This application does not use toolkits that add a huge footprint to the executable. The entire app is a single executable with a binary code size of less than 130 Kb. The actual executable may be larger, because of resources like the complex apache logo (83kb) and icon (5kb). With a blank logo and icon and 32 bit plataform it can be less than 90 Kb!
 - Future proof and backward compatible. This interface uses the Win32 API, which is guaranteed to work on all contemporary desktop Windows versions.
 - 64 bit and 32 bits versions.
 - Simple. The arguments are passed as simple text.
 - Save and load parameters as named sets. Those parameters sets are stored as xml files in the same folder, and can be copied and edited. For this reason, the file browse controls will automatically convert paths descendant from current working diretory to relative paths so they stay valid even if the precedding hierachy changes.
 - Copy command line. Not only the this application is a interface, but it also can creates a command line for your script so you can run you script with the selected arguments even where you dont have a window server, such as ssh session or a already existing command line prompt session.
 - Integrated help. You can distribute a PDF or CHM file with same name as the script, and the interface will open it when user clicks on the help button.
-- Free. The only used library is WTL, which is header only (template) and licensed under the Microsoft Public License.  This code is licensed as Apache 2.0.
+- Free. The only used library is WTL, which is header only (template) and licensed under the Microsoft Public License.  This project is  Apache 2.0.
 - Supported file types:
  - Perl (.pl, .lava)
  - Python (.py)
