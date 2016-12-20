@@ -46,16 +46,16 @@ choice combo box
 - `<name>*<extension>(,<extension>...)`  
 file browse control, listing only files that match one of the given extensions
 - `<name>:<another control name>`  
-derived control that gets its list values from the file pointed by another file browse control
-different files will have differente associated lists
-Ex.: csv files will be a list of column names
+derived control that gets its list values from the file pointed by another file browse control  
+different files will have differente associated lists  
+Ex.: csv files will be a list of column names  
 - `<name>@`  
 checkbox boolean control
 - `<name>#<control>(#<control>...)`  
-grid of controls, allowing a the user to create a list of similar values
-the resulting list is semicollon separated (`;`)
-multiple controls can be used in a single line, and their result will be comma (`,`) separated
-Ex.: a,1;b,2;c,3
+grid of controls, allowing a the user to create a list of similar values  
+the resulting list is semicollon separated (`;`)  
+multiple controls can be used in a single line, and columns in each row will be comma (`,`) separated  
+Ex.: a,1;b,2;c,3  
 
 ### Example of a "usage:" line
 `usage: %0 input*csv selection=a,b,c numeric=123 boolean@ output*csv`  
