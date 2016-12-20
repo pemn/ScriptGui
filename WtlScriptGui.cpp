@@ -27,7 +27,7 @@ int _tmain(/*int argc, wchar_t* argv[]*/)
 
     // If you are running on NT 4.0 or higher you can use the following call instead to 
     // make the EXE free threaded. This means that calls come in on a random RPC thread.
-	::CoInitializeEx(NULL, COINIT_MULTITHREADED);
+    ::CoInitializeEx(NULL, COINIT_MULTITHREADED);
     
     int nRet = 0;
     // NOTE: CMainDlg must be in this block.  Not doing so causes the
