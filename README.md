@@ -8,8 +8,8 @@ This C++ application is a standalone graphical interface toolkit for giving comm
 ![screenshot](https://github.com/pemn/ScriptGui/blob/master/assets/screenshot1.png)
 
 ## Features
-- Fully standalone. No runtimes (other than MSVC, and even this can be optionally removed by compiling with static runtime)
-- Data driven. The entire interface is defined with a single line with special control templates. This template line can be a comment line, so your code is effectively unchanged. The only thing you must ensure is to read the command line parameters which will contain the user input.
+- Fully standalone. The only runtime libraries required are MSVCxx. Current release was compiled using MSVC2010 (v10.0) libraries, which are included by default on Windows 7 and up. You could compile with the static library for complete runtime independence, but that would add around 60k to executable size.
+- Data driven. You copy the same executable for each script that requires a interface, there is no need to (re)compile this project. The entire interface is defined with a single line with special control templates on the target script. This template line can be a comment line, so the active code is unchanged. The only thing you must ensure is to somewhere the script will read the command line parameters which will contain the user input.
 - Flexible. Any language that can somehow read the command line arguments can be supported. Custom handlers may be easily implemented too.
 - Small. This application does not use toolkits that add a huge footprint to the executable. The entire app is a single executable with a binary code size of less than 130 Kb. The actual executable may be larger, because of resources like the complex apache logo (83kb) and icon (5kb). With a blank logo and icon and 32 bit plataform it can be less than 90 Kb!
 - Future proof and backward compatible. This interface uses the Win32 API, which is guaranteed to work on all contemporary desktop Windows versions.
