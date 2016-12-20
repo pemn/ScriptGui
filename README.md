@@ -39,23 +39,30 @@ Once the interface finds a compatible script, it will do a text search on the co
 When it is found, its line is parsed into interface controls using the templates described below. This `usage:` can be a comment or, even better, can be the short help message describing its usage. Its common for a script to print their parameter syntax when called with a switch such as `/?` and `-h` or without any arguments. The origin of this interface was trying to "guess" a good control layout from existing usage lines. Conforming any already existing usage line to the templates should have no downsides and will even look informative.
 
 ### Control templates
-- `<name>=<value>`  
-text input control
-- `<name>*<extension>`  
-file browse control
+- `<name>=<default value>`  
+text input control with a default value in the combo box
+- `<name>=<list of values seprated by ,>`  
+choice combo box
+- `<name>*<extension>(,<extension>...)`  
+file browse control, listing only files that match one of the given extensions
 - `<name>:<another control name>`  
 derived control that gets its list values from the file pointed by another file browse control
+different files will have differente associated lists
+Ex.: csv files will be a list of column names
 - `<name>@`  
 checkbox boolean control
-- `<name>#<control>`  
+- `<name>#<control>(#<control>...)`  
 grid of controls, allowing a the user to create a list of similar values
+the resulting list is semicollon separated (`;`)
+multiple controls can be used in a single line, and their result will be comma (`,`) separated
+Ex.: a,1;b,2;c,3
 
 ### Example of a "usage:" line
 `usage: %0 input*csv selection=a,b,c numeric=123 boolean@ output*csv`  
 
 ### Limitations
-This interface was developped to catter to a already existing ecosystem of scripts and contains some custom funcionalities and assumptions that may require adjusting.  
-It alsos relies on the Win32 API which is quirky and hard to understand.  
+This interface was developped to catter to a already existing ecosystem of scripts and contain custom funcionalities and assumptions that may require adjusting.  
+It also relies on the Win32 API which is quirky and hard to understand.  
 
 ## License
 Apache 2.0
