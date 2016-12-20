@@ -97,20 +97,31 @@ std::vector<T> VectorFilterSufix(std::vector<T> vInput, std::vector<T> vExt) {
 template <class T>
 T GetClientScriptPath() {
     std::vector<T> vExt;
-    vExt.push_back(T("LAVA"));
-    vExt.push_back(T("CSH"));
-    vExt.push_back(T("BAT"));
-	vExt.push_back(T("CMD"));
-    vExt.push_back(T("DLL"));
-    vExt.push_back(T("VBS"));
+    // to add a new supported file, insert a new line here with the file extension
+    // the order is important. the first matched file will be used
+    // Python
     vExt.push_back(T("PY"));
+    // Perl
+    vExt.push_back(T("LAVA"));
     vExt.push_back(T("PL"));
+    // Windows Batch
+    vExt.push_back(T("BAT"));
+    vExt.push_back(T("CMD"));
+    // Unix C Shell
+    vExt.push_back(T("CSH"));
+    // Custom DLL with a run function
+    vExt.push_back(T("DLL"));
+    // HTML application
+    vExt.push_back(T("HTA"));
+    // Windows Script Host
+    vExt.push_back(T("VBS"));
     vExt.push_back(T("JS"));
     auto vFilter = VectorFilterSufix(FileSearch<T>(NULL, GetModuleName()), vExt);
     if(vFilter.size() > 0) {
+        // pick the first matched file
         return(vFilter.front());
     }
-    return(_T(""));
+    return(T());
 }
 
 // return a list of all help files 
