@@ -37,6 +37,7 @@ grid of controls, allowing a the user to create a list of similar values
 ### Limitations
 This interface was developped to catter to a already existing ecosystem of scripts and contains some custom funcionalities and assumptions that may require adjusting.  
 It alsos relies on the Win32 API which is quirky and hard to understand.  
+
 ## License
 Apache 2.0
 
