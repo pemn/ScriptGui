@@ -15,3 +15,21 @@ This C++ application is a standalone graphical interface toolkit for giving comm
 
 ## Screenshot
 ![screenshot](https://github.com/pemn/ScriptGui/blob/master/assets/screenshot1.png)
+## How to use
+### File name matters
+The interfaces searches in the current working directory for all files that have the same base name, and are of a supported extension.
+Ex.: "myscript.exe" will match a file named "myscript.py".
+### The "usage:" line
+Once the interface finds a compatible script, it will do a text search on the contents of this file looking for a magic word: `usage:`  
+When it is found, this line is parsed into interface controls using the templates described below.
+### Control templates
+- `<name>=<value>`  
+text input control
+- `<name>*<extension>`  
+file browse control
+- `<name>:<another control name>`  
+derived control that gets its list values from the file pointed by another file browse control
+- `<name>@`  
+checkbox boolean control
+- `<name>#<control>` 
+grid of controls
