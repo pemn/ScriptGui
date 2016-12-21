@@ -1,4 +1,4 @@
-# Test Dummy Scripts
+# Example Dummy Scripts
 Here we store minimal tests scripts for the interface. They all have a `usage:` line and echo the command line arguments back to the STDOUT.  
 Some are more elaborate other more simple, and are by no means examples of how a real script should be. Those scripts are not really tests scripts, but rather dummies that can be used to check if the basic funcionallity of the interface is working.  
 Copy the script from a given language to the same directory as the interface executable and run the executable. It should call the script.  
