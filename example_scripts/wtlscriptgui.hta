@@ -1,19 +1,16 @@
 <html>
 <head>
 <title>Command Line Agruments</title>
-<HTA:APPLICATION  ID="objTestHTA" APPLICATIONNAME="Command Line Arguments" SINGLEINSTANCE="yes">
+<HTA:APPLICATION  ID="objHTA" APPLICATIONNAME="Command Line Arguments" SINGLEINSTANCE="yes">
 </head>
-<SCRIPT Language="VBScript">
-// usage: <script> input*csv output*csv
-Sub Window_onLoad
-    arrCommands = Split(objTestHTA.commandLine, " ")
-    Dim strBuffer
-    For i = 1 To Ubound(arrCommands)
-        strBuffer = strBuffer & " " & arrCommands(i)
-    Next
-    Msgbox "Arguments:" & strBuffer
-End Sub
-</SCRIPT>
+<script>
+function body_onload() {
+    var arg = objHTA.commandLine.substr(objHTA.commandLine.lastIndexOf('"')+2);
+    document.write("Arguments: " + arg);
+}
+</script>
 <body>
+</head>
+<body onload="body_onload()">
 </body>
 </html>
