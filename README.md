@@ -31,8 +31,8 @@ This C++ application is a standalone graphical interface toolkit for giving comm
 
 ## How to use
 ### File name matters
-The interfaces searches in the current working directory for all files that have the same base name, and are of a supported extension.
-Ex.: "myscript.exe" will match a file named "myscript.py".  
+The interface searches in the current working directory for all files that have the same base name, and are of a supported extension.
+Ex.: "myscript.exe" will match a file named "myscript.py" if it exists.  
 If the interface cant locate a supported file, it will exit with the following error:  
 ![error_no_script](https://github.com/pemn/ScriptGui/blob/master/assets/error_no_script.png)
 
