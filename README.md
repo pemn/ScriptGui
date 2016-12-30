@@ -14,7 +14,7 @@ Ex.:
 - Fully standalone. The only runtime libraries required are MSVCxx. Current release was compiled using MSVC2010 (v10.0) libraries, which are included by default on Windows 7 and up. You could compile with the static library for complete runtime independence, but that would add around 60k to executable size.
 - 64 bit and 32 bits versions.
 - Data driven. You copy the same executable for each script that requires a interface, there is no need to (re)compile this project. The entire interface is defined with a single line with special control templates on the target script. This template line can be a comment line, so the active code is unchanged. The only thing you must ensure is to somewhere the script will read the command line parameters which will contain the user input.
-- Flexible. Any language that can somehow read the command line arguments can be supported. Custom handlers may be easily implemented too.
+- Flexible. Any language that can somehow read the command line arguments can be supported. Custom handlers may be easily implemented.  Like the DLL handler that executes its functions dynamically with `LoadLibrary()`.
 - Small. This application does not use toolkits that add a huge footprint to the executable. The entire app is a single executable with ~ 130 Kb (64bits) or ~90 Kb (32bits). It may be be larger, due to resources like the logo and icon.
 - Future proof and backward compatible. This interface uses the Win32 API, which is guaranteed to work on all contemporary desktop Windows versions.
 - Simple. The arguments are passed as simple text.
