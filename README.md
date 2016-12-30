@@ -2,7 +2,10 @@
 Data driven Windows gui for command line scripts.
 
 ## Description
-This C++ application is a standalone graphical interface toolkit for giving command line scripts a intuitive user input. The user can fill the fields then click "Run" to call the associated script with the parameters selected as the command line arguments.
+This C++ application is a standalone graphical interface toolkit for giving command line scripts a intuitive user input. The user can fill the fields then click "Run" to call the associated script with the parameters selected as the command line arguments.  
+Ex.:  
+`myscript.exe`  
+`myscript.py`  
 
 ## Screenshot
 ![screenshot](https://github.com/pemn/ScriptGui/blob/master/assets/screenshot1.png)
