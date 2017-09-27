@@ -347,28 +347,28 @@ T QuoteString(T strText) {
 // return non-zero on error
 WORD SetClipboardCString(HWND hWnd, CString strData) {
     // lock the clipboard to our thread
-    if(::OpenClipboard(hWnd)) {
-        // we only really get ownership of the clipboard when we empty it
-        if(EmptyClipboard()) {
-            // copy the CString data into a global buffer
-            HGLOBAL hGlobal = GlobalAlloc(GMEM_ZEROINIT|GMEM_MOVEABLE|GMEM_DDESHARE, (strData.GetLength()+1)*sizeof(TCHAR));
-			//HGLOBAL hGlobal = GlobalAlloc(GMEM_NODISCARD | GMEM_ZEROINIT, (strData.GetLength()+1)*sizeof(TCHAR));
-			
-            LPTSTR lpszBuf = static_cast<LPTSTR>(::GlobalLock(hGlobal));
-            // lstrcpy((LPTSTR)hClipboardData,strData);
-            lstrcpy(lpszBuf, strData);
-            // set the clipboard to the value on the burffer
-            SetClipboardData(CF_TEXT, hGlobal);
-            // clean up
-            GlobalUnlock(hGlobal);
-            GlobalFree(hGlobal);
-        }
-        CloseClipboard();
-    } else {
-        return(EXIT_FAILURE);
-    }
+    if(! ::OpenClipboard(hWnd)) 
+        return(EXIT_FAILURE); 
 
-    return(EXIT_FAILURE);
+    // we only really get ownership of the clipboard when we empty it
+    if(! EmptyClipboard())
+        return(EXIT_FAILURE);
+    
+    // copy the CString data into a global buffer
+    HGLOBAL hGlobal = GlobalAlloc(GMEM_ZEROINIT|GMEM_MOVEABLE|GMEM_DDESHARE, (strData.GetLength()+1)*sizeof(TCHAR));
+    //HGLOBAL hGlobal = GlobalAlloc(GMEM_NODISCARD | GMEM_ZEROINIT, (strData.GetLength()+1)*sizeof(TCHAR));
+    
+    LPTSTR lpszBuf = static_cast<LPTSTR>(::GlobalLock(hGlobal));
+    // lstrcpy((LPTSTR)hClipboardData,strData);
+    lstrcpy(lpszBuf, strData);
+    // set the clipboard to the value on the burffer
+    SetClipboardData(CF_TEXT, hGlobal);
+    // clean up
+    GlobalUnlock(hGlobal);
+    GlobalFree(hGlobal);
+    CloseClipboard();
+
+    return(EXIT_SUCCESS);
 }
 
 // return the FileUsage property of a DLL
