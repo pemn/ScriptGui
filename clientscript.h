@@ -92,7 +92,7 @@ public:
             } else if(m_script.Right(2).CompareNoCase(_T("js")) == 0 
             || m_script.Right(3).CompareNoCase(_T("vbs")) == 0) {
                 m_exe = _T("cscript /nologo");
-            } else if(m_script.Right(2).CompareNoCase(_T("py")) == 0) {
+            } else if(m_script.Right(2).CompareNoCase(_T("py")) == 0 ) {
                 m_exe = _T("python");
             } else { // default to windows command
                 m_exe = _T("cmd /c");
@@ -185,7 +185,7 @@ public:
 		// since the CFileDialog most probably will change it!
 		GetCurrentDirectory(MAX_PATH, szDir);
 
-        CFileDialog dlg(TRUE, NULL, _T("vlauncher.exe"), OFN_FILEMUSTEXIST, _T("vlauncher.exe\0vlauncher.exe\0"));
+        CFileDialog dlg(TRUE, NULL, _T("perl.exe"), OFN_FILEMUSTEXIST, _T("perl.exe\0perl.exe\0"));
         if(dlg.DoModal() == IDCANCEL) {
             return(FALSE);
         }
@@ -227,9 +227,9 @@ public:
             
             // check if we have a vulcan directory on any directory contained on the PATH
             if(nTry == 2
-            && SearchPath(NULL, _T("vlauncher.exe"), NULL, MAX_PATH, szBuffer, NULL)) {
-                // remove the vlauncher.exe leaving the path to parent directory
-                szBuffer[lstrlen(szBuffer) - 14] = 0;
+            && SearchPath(NULL, _T("perl.exe"), NULL, MAX_PATH, szBuffer, NULL)) {
+                // remove the perl.exe leaving the path to parent directory
+                szBuffer[lstrlen(szBuffer) - 9] = 0;
                 strVulcan = szBuffer;
             }
             
@@ -246,11 +246,11 @@ public:
                 GetShortPathName(szPath, szBuffer, MAX_PATH);
                 
                 // search recursively for the vlauncher.exe, which is the vulcan entry point
-                auto vFound = FileSearch<CString>(szBuffer, "vlauncher.exe", TRUE);
+                auto vFound = FileSearch<CString>(szBuffer, _T("perl.exe"), TRUE);
                 if(vFound.size() > 0) {
                     // use the last found file, which we presume is the latest version
                     // get the path to the parent directory of vlauncher.exe and set the variable
-                    strVulcan =  vFound.back().Left(vFound.back().GetLength() - 14);
+                    strVulcan =  vFound.back().Left(vFound.back().GetLength() - 9);
                 }
             }
 
@@ -301,7 +301,7 @@ public:
         //$ENV{ENVIS_MAXTRP} = 12000000;
 
         // if we dont have any vulcan directory on the path, add it
-        if(SearchPath(NULL, _T("vlauncher.exe"), NULL, MAX_PATH, szBuffer, NULL) == 0) {
+        if(SearchPath(NULL, _T("perl.exe"), NULL, MAX_PATH, szBuffer, NULL) == 0) {
             // create a custom PATH, with bare minimum search locations
             ExpandEnvironmentStrings(_T("%VULCAN_EXE%;%vulcan_bin%\\oda;%VULCAN_BIN%\\cygnus\\bin;%PATH%"),szBuffer,MAX_PATH * 10);
             SetEnvironmentVariable(_T("PATH"), szBuffer);
