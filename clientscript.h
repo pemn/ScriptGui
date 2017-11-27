@@ -240,17 +240,16 @@ public:
             // 3,4,5,6
             if(nTry >= 3 && nTry <= 6) {
                 // copy the program files directory path into the buffer
-                TCHAR szPath[MAX_PATH];
-                GetEnvironmentVariable(szSearch[nTry - 3], szPath, MAX_PATH);
-                // convert path to short form to avoid some glitches with vulcan csh startup scripts
-                GetShortPathName(szPath, szBuffer, MAX_PATH);
-                
-                // search recursively for the vlauncher.exe, which is the vulcan entry point
+                GetEnvironmentVariable(szSearch[nTry - 3], szBuffer, MAX_PATH);
+                // search recursively for the perl.exe, which on most cases is only available in vulcan
                 auto vFound = FileSearch<CString>(szBuffer, _T("perl.exe"), TRUE);
                 if(vFound.size() > 0) {
                     // use the last found file, which we presume is the latest version
+                    // convert path to short form to avoid some glitches with vulcan csh startup scripts
+                    GetShortPathName(vFound.back(), strVulcan.GetBuffer(MAX_PATH), MAX_PATH);
+                    strVulcan.ReleaseBuffer();
                     // get the path to the parent directory of vlauncher.exe and set the variable
-                    strVulcan =  vFound.back().Left(vFound.back().GetLength() - 9);
+                    strVulcan = strVulcan.Left(strVulcan.GetLength() - 9);
                 }
             }
 
