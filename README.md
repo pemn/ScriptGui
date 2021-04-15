@@ -9,7 +9,7 @@ Ex.:
 `myscript.py`  
 
 ## Screenshot
-![screenshot](https://github.com/pemn/ScriptGui/blob/master/assets/screenshot1.png)
+![screenshot](./assets/screenshot1.png?raw=true)
 
 ## Features
 - Fully standalone. The only runtime libraries required are MSVCxx. Current release was compiled using MSVC2010 (v10.0) libraries, which are included by default on Windows 7 and up. You could compile with the static library for complete runtime independence, but that would add around 60k to executable size.
@@ -38,7 +38,7 @@ Ex.:
 The interface searches in the current working directory for all files that have the same base name, and are of a supported extension.
 Ex.: "myscript.exe" will match a file named "myscript.py" if it exists.  
 If the interface cant locate a supported file, it will exit with the following error:  
-![error_no_script](https://github.com/pemn/ScriptGui/blob/master/assets/error_no_script.png)
+![error_no_script](./assets/error_no_script.png?raw=true)
 
 ### The `usage:` line
 Once the interface finds a compatible script, it will do a text search on the contents of this file looking for a magic word: `usage:`  
